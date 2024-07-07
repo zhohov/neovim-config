@@ -13,13 +13,13 @@ return {
   -- Icons
   { 'kyazdani42/nvim-web-devicons', lazy = true },
 
-  -- Tabline
+  -- Bufferline
   { 
     'akinsho/bufferline.nvim', 
     version = "*", 
     dependencies = 'nvim-tree/nvim-web-devicons', 
     config = function()
-      local config = require('plugins.opts.bufferline')
+      local config = require('plugins.configs.bufferline')
 
       require('bufferline').setup{
         options = config
@@ -27,14 +27,21 @@ return {
     end,
   },
 
+  -- NvimTree
   {
     'kyazdani42/nvim-tree.lua',
     dependencies = { 
       'kyazdani42/nvim-web-devicons' 
     },
     config = function()
-      config = require('plugins.opts.nvim-tree') 
+      config = require('plugins.configs.nvim-tree') 
       require('nvim-tree').setup(config)
     end,
+  }, 
+  
+  -- Telescope
+  {
+    'nvim-telescope/telescope.nvim', branch = '0.1.x',
+    dependencies = { 'nvim-lua/plenary.nvim' },
   },
 }

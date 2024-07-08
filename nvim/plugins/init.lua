@@ -27,21 +27,48 @@ return {
     end,
   },
 
-  -- NvimTree
   {
-    'kyazdani42/nvim-tree.lua',
-    dependencies = { 
-      'kyazdani42/nvim-web-devicons' 
-    },
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
+      -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+    }, 
     config = function()
-      config = require('plugins.configs.nvim-tree') 
-      require('nvim-tree').setup(config)
+      require('neo-tree').setup{
+        filesystem = {
+          filtered_items = {
+            visible = true,
+          },
+        },
+      }
     end,
-  }, 
+  },
   
   -- Telescope
   {
     'nvim-telescope/telescope.nvim', branch = '0.1.x',
     dependencies = { 'nvim-lua/plenary.nvim' },
   },
+
+  -- treesitter
+  {
+    `nvim-treesitter/nvim-treesitter`,
+    config = function()
+      require('nvim-treesitter').setup{
+        -- A list of parser names, or "all" (the listed parsers MUST always be installed)
+        ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline" },
+
+        -- Install parsers synchronously (only applied to `ensure_installed`)
+        sync_install = false,
+
+        -- Automatically install missing parsers when entering buffer
+        -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
+        auto_install = true,
+      }
+    end,
+  },
+    - more than  two, but not many (a few, some, not very many, etc)
 }

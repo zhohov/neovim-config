@@ -55,7 +55,7 @@ return {
 
   -- treesitter
   {
-    `nvim-treesitter/nvim-treesitter`,
+    "nvim-treesitter/nvim-treesitter",
     config = function()
       require('nvim-treesitter').setup{
         -- A list of parser names, or "all" (the listed parsers MUST always be installed)
@@ -70,5 +70,4 @@ return {
       }
     end,
   },
-    - more than  two, but not many (a few, some, not very many, etc)
 }

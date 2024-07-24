@@ -1,7 +1,7 @@
 return {
   -- Color scheme
-  { 
-    "morhetz/gruvbox", 
+  {
+    "morhetz/gruvbox",
     lazy = false,
     priority = 1000,
     config = function()
@@ -14,14 +14,14 @@ return {
   { 'kyazdani42/nvim-web-devicons', lazy = true },
 
   -- Bufferline
-  { 
-    'akinsho/bufferline.nvim', 
-    version = "*", 
-    dependencies = 'nvim-tree/nvim-web-devicons', 
+  {
+    'akinsho/bufferline.nvim',
+    version = "*",
+    dependencies = 'nvim-tree/nvim-web-devicons',
     config = function()
       local config = require('plugins.configs.bufferline')
 
-      require('bufferline').setup{
+      require("bufferline").setup{
         options = config
       }
     end,
@@ -35,18 +35,19 @@ return {
       "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
       "MunifTanjim/nui.nvim",
       -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
-    }, 
+    },
     config = function()
       require('neo-tree').setup{
         filesystem = {
           filtered_items = {
             visible = true,
+            custom = { 'node_modules' },
           },
         },
       }
     end,
   },
-  
+
   -- Telescope
   {
     'nvim-telescope/telescope.nvim', branch = '0.1.x',
@@ -76,6 +77,6 @@ return {
     'lewis6991/gitsigns.nvim',
     config = function()
       require('gitsigns').setup()
-    end, 
+    end,
   },
 }

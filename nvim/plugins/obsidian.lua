@@ -45,6 +45,7 @@ return {
         end,
       },
     }
+    vim.opt_local.conceallevel = 2
   end
 }
 
